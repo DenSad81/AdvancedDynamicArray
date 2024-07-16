@@ -8,44 +8,47 @@ class Program
 {
     static void Main(string[] args)
     {
-        const string Sum = "sum";
-        const string Exit = "exit";
-        List<int> dinamicArray = new List<int>();
+        const string CommandSum = "sum";
+        const string CommandExit = "exit";
+        List<int> digits = new List<int>();
         string dataFromUser;
         bool isRun = true;
 
         while (isRun)
         {
-            Console.Write($"Inpout digit or command ({Sum} or {Exit}): ");
+            Console.Write($"Inpout digit or command ({CommandSum} or {CommandExit}): ");
             dataFromUser = Console.ReadLine().ToLower();
 
             switch (dataFromUser)
             {
-                case Sum:
-                    ShowSum(dinamicArray);
+                case CommandSum:
+                    ShowSum(digits);
                     break;
-                case Exit:
+
+                case CommandExit:
                     isRun = false;
                     break;
+
                 default:
-                    AddNumber(dinamicArray, dataFromUser);
+                    AddNumber(digits, dataFromUser);
                     break;
             }
         }
     }
 
-    static void ShowSum(List<int> dinamicArray)
+    static void ShowSum(List<int> digits)
     {
         int summaElementsOfArray = 0;
-        for (int i = 0; i < dinamicArray.Count; i++)
-            summaElementsOfArray += dinamicArray[i];
+
+        for (int i = 0; i < digits.Count; i++)
+            summaElementsOfArray += digits[i];
 
         Console.WriteLine("Summa elements of array = " + summaElementsOfArray);
     }
 
-    static void AddNumber(List<int> dinamicArray, string dataFromUser)
+    static void AddNumber(List<int> digits, string dataFromUser)
     {
         if (int.TryParse(dataFromUser, out int rightNumber))
-            dinamicArray.Add(rightNumber);
+            digits.Add(rightNumber);
     }
 }
