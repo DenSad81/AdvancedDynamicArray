@@ -10,6 +10,7 @@ class Program
     {
         const string CommandSum = "sum";
         const string CommandExit = "exit";
+       
         List<int> digits = new List<int>();
         string dataFromUser;
         bool isRun = true;
